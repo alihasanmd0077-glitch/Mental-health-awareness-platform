@@ -4,7 +4,7 @@
 let CONFIG = {
   supabaseUrl: 'https://kzwiqemdqgfwmntiaiwc.supabase.co',
   supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6d2lxZW1kcWdmd21udGlhaXdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2NDcwMzcsImV4cCI6MjA4OTIyMzAzN30.OgP_hmLPyReSbSmLgAcrVMmfgf5XYMmxJ1BswddtVLQ',
-  geminiKey: 'AIzaSyC-AkYTQXf3Pu7qTCG3wLFv9c1F66Sq89s'
+  geminiKey: ''
 };
 
 let supabaseClient = null;
