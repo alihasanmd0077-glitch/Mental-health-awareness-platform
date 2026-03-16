@@ -36,7 +36,7 @@ A full-stack mental health awareness and well-being platform. **Works fully in d
 
 #### 2. Gemini API Key
 1. Visit [aistudio.google.com](https://aistudio.google.com)
-2. Create an API key for **Gemini 1.5 Flash**
+2. Create an API key for **Gemini 3 Flash**
 
 #### 3. Configure in App
 1. Open `index.html` in browser
@@ -74,7 +74,7 @@ community_posts   — text, tag, anon_icon, likes
 - **Frontend**: Vanilla HTML/CSS/JavaScript
 - **Charts**: Chart.js
 - **Backend**: Supabase (Auth + PostgreSQL + RLS)
-- **AI**: Google Gemini 1.5 Flash (via REST API)
+- **AI**: Google Gemini 3 Flash (via REST API)
 - **Fonts**: DM Serif Display + DM Sans (Google Fonts)
 - **Theme**: Calm Green & White palette
 
