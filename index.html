@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MindSpace — Your Mental Wellness Sanctuary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ===== LANDING PAGE ===== -->
+<div id="landing-page" class="landing-page">
+  <nav class="lp-nav">
+    <a href="#" class="lp-logo">
+      <span>🌿</span> MindSpace
+    </a>
+    <div class="lp-nav-links">
+      <a href="#features" class="lp-nav-link">Features</a>
+      <button class="btn-ghost small theme-toggle" onclick="toggleDarkMode()" title="Toggle Theme">🌙</button>
+      <button class="btn-ghost small" onclick="openAuth('login')">Sign In</button>
+      <button class="btn-primary small" onclick="openAuth('register')">Get Started</button>
+    </div>
+  </nav>
+
+  <header class="lp-hero">
+    <h1>Find your inner calm, <br/> <span>one breath at a time.</span></h1>
+    <p>Your gentle companion for mental well-being. Track your moods, connect with community, and chat with Sage, your AI support assistant.</p>
+    <div class="lp-hero-actions">
+      <button class="btn-primary" onclick="openAuth('register')">Start Your Journey</button>
+      <button class="btn-ghost" onclick="scrollToFeatures()">Learn More</button>
+    </div>
+  </header>
+
+  <section id="features" class="lp-features">
+    <h2 class="lp-section-title">Designed for your peace of mind</h2>
+    <div class="lp-feature-grid">
+      <div class="lp-feature-card">
+        <span class="lp-feature-icon">💚</span>
+        <h3>Mood Tracking</h3>
+        <p>Visualize your emotional journey and discover patterns in your well-being.</p>
+      </div>
+      <div class="lp-feature-card">
+        <span class="lp-feature-icon">🤖</span>
+        <h3>AI Companion</h3>
+        <p>A safe space to talk anytime. Sage listens without judgment and offers gentle support.</p>
+      </div>
+      <div class="lp-feature-card">
+        <span class="lp-feature-icon">🌐</span>
+        <h3>Community</h3>
+        <p>Connect anonymously with others who understand. You are never alone.</p>
+      </div>
+      <div class="lp-feature-card">
+        <span class="lp-feature-icon">🌬️</span>
+        <h3>Mindfulness</h3>
+        <p>Guided breathing exercises and resources to help you ground yourself.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="lp-cta-section">
+    <div class="lp-cta-card">
+      <h2>Ready to feel better?</h2>
+      <p>Join thousands of users on their path to a more mindful life. It's free to start.</p>
+      <div class="lp-hero-actions" style="justify-content: center; margin-top: 30px;">
+        <button class="btn-primary" onclick="openAuth('register')">Create Your Account</button>
+        <button class="btn-ghost" onclick="openAuth('login')">Sign In</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="lp-footer">
+    <p>&copy; 2026 MindSpace. Caring for your mind, everywhere.</p>
+  </footer>
+</div>
+
+<!-- ===== AUTH OVERLAY ===== -->
+<div id="auth-overlay" class="overlay">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="logo-mark">🌿</div>
+      <h1>MindSpace</h1>
+      <p>Your quiet corner for mental wellness</p>
+    </div>
+    <div class="auth-tabs">
+      <button class="tab-btn active" data-tab="login">Sign In</button>
+      <button class="tab-btn" data-tab="register">Join Free</button>
+    </div>
+    <div id="tab-login" class="tab-panel active">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="login-email" placeholder="you@example.com"/>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="login-password" placeholder="••••••••"/>
+      </div>
+      <button class="btn-primary" onclick="authLogin()">Sign In</button>
+      <button class="btn-ghost" onclick="demoLogin()">Continue as Guest (Demo)</button>
+    </div>
+    <div id="tab-register" class="tab-panel">
+      <div class="form-group">
+        <label>Display Name <span class="hint">(stays anonymous)</span></label>
+        <input type="text" id="reg-name" placeholder="e.g. QuietMind42"/>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="reg-email" placeholder="you@example.com"/>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="reg-password" placeholder="min 8 characters"/>
+      </div>
+      <button class="btn-primary" onclick="authRegister()">Create Account</button>
+    </div>
+    <p id="auth-msg" class="auth-msg"></p>
+  </div>
+</div>
+
+<!-- ===== MAIN APP ===== -->
+<div id="app" class="app hidden">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <span class="logo-mark">🌿</span>
+      <span class="brand-name">MindSpace</span>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-page="dashboard">
+        <span class="nav-icon">🏡</span><span>Home</span>
+      </button>
+      <button class="nav-item" data-page="tracker">
+        <span class="nav-icon">💚</span><span>Mood Tracker</span>
+      </button>
+      <button class="nav-item" data-page="journal">
+        <span class="nav-icon">📓</span><span>Journal</span>
+      </button>
+      <button class="nav-item" data-page="ai-chat">
+        <span class="nav-icon">🤖</span><span>AI Support</span>
+      </button>
+      <button class="nav-item" data-page="community">
+        <span class="nav-icon">🌐</span><span>Community</span>
+      </button>
+      <button class="nav-item" data-page="resources">
+        <span class="nav-icon">📚</span><span>Learn</span>
+      </button>
+      <button class="nav-item" data-page="breathe">
+        <span class="nav-icon">🌬️</span><span>Breathe</span>
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="user-avatar" id="sidebar-avatar">?</div>
+        <span id="sidebar-username">Guest</span>
+      </div>
+      <button class="nav-item theme-toggle-app" onclick="toggleDarkMode()">
+        <span class="nav-icon theme-icon">🌙</span><span>Theme</span>
+      </button>
+      <button class="nav-item logout-btn" onclick="logout()">
+        <span class="nav-icon">🚪</span><span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Mobile topbar -->
+  <header class="topbar">
+    <button class="hamburger" id="hamburger" onclick="toggleSidebar()">☰</button>
+    <span class="topbar-title">🌿 MindSpace</span>
+    <div class="user-avatar small" id="topbar-avatar">?</div>
+  </header>
+
+  <!-- Pages -->
+  <main class="main-content" id="main-content">
+
+    <!-- DASHBOARD -->
+    <section class="page active" id="page-dashboard">
+      <div class="page-header">
+        <h2 id="greeting">Good morning</h2>
+        <p class="page-sub">How are you feeling today?</p>
+      </div>
+      <div class="quick-mood">
+        <p class="section-label">Quick check-in</p>
+        <div class="mood-quick-row" id="quick-mood-row">
+          <button class="mood-q" data-val="1" onclick="quickMood(1)">😞<span>Rough</span></button>
+          <button class="mood-q" data-val="2" onclick="quickMood(2)">😔<span>Low</span></button>
+          <button class="mood-q" data-val="3" onclick="quickMood(3)">😐<span>Okay</span></button>
+          <button class="mood-q" data-val="4" onclick="quickMood(4)">🙂<span>Good</span></button>
+          <button class="mood-q" data-val="5" onclick="quickMood(5)">😄<span>Great</span></button>
+        </div>
+      </div>
+      <div class="dashboard-grid">
+        <div class="dash-card card-mood-chart">
+          <h3>Your mood this week</h3>
+          <canvas id="mood-chart" height="120"></canvas>
+          <p id="chart-placeholder" class="placeholder-text">Log moods to see your chart ✨</p>
+        </div>
+        <div class="dash-card card-streak">
+          <div class="streak-icon">🔥</div>
+          <div class="streak-info">
+            <span class="streak-num" id="streak-count">0</span>
+            <span class="streak-label">day streak</span>
+          </div>
+        </div>
+        <div class="dash-card card-affirmation">
+          <p class="affirmation-label">Today's affirmation</p>
+          <p class="affirmation-text" id="affirmation-text">Loading...</p>
+          <button class="btn-ghost small" onclick="newAffirmation()">New ✨</button>
+        </div>
+        <div class="dash-card card-tip">
+          <p class="tip-label">💡 Wellness tip</p>
+          <p class="tip-text" id="tip-text">Loading...</p>
+        </div>
+        <div class="dash-card card-cta">
+          <h3>Need to talk?</h3>
+          <p>Our AI companion is here for you, anytime.</p>
+          <button class="btn-primary small" onclick="navigate('ai-chat')">Start Chat →</button>
+        </div>
+        <div class="dash-card card-crisis">
+          <p class="crisis-label">🆘 Crisis resources</p>
+          <p><strong>iCall (India):</strong> 9152987821</p>
+          <p><strong>Vandrevala Foundation:</strong> 1860-2662-345</p>
+          <p><strong>International:</strong> <a href="https://findahelpline.com" target="_blank">findahelpline.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOOD TRACKER -->
+    <section class="page" id="page-tracker">
+      <div class="page-header">
+        <h2>Mood Tracker</h2>
+        <p class="page-sub">Track your emotional journey</p>
+      </div>
+      <div class="tracker-form card">
+        <p class="section-label">How are you feeling right now?</p>
+        <div class="mood-slider-row">
+          <span class="emoji-sm">😞</span>
+          <input type="range" id="mood-slider" min="1" max="10" value="5" oninput="updateMoodEmoji()"/>
+          <span class="emoji-sm">😄</span>
+        </div>
+        <div class="mood-display">
+          <span id="mood-emoji" class="big-emoji">😐</span>
+          <span id="mood-value" class="mood-val">5 / 10</span>
+        </div>
+        <div class="form-group mt">
+          <label>What emotions are present? <span class="hint">(select all that apply)</span></label>
+          <div class="emotion-tags" id="emotion-tags">
+            <button class="etag" onclick="toggleEtag(this)">😰 Anxious</button>
+            <button class="etag" onclick="toggleEtag(this)">😢 Sad</button>
+            <button class="etag" onclick="toggleEtag(this)">😠 Angry</button>
+            <button class="etag" onclick="toggleEtag(this)">😌 Calm</button>
+            <button class="etag" onclick="toggleEtag(this)">😊 Happy</button>
+            <button class="etag" onclick="toggleEtag(this)">😔 Lonely</button>
+            <button class="etag" onclick="toggleEtag(this)">🤩 Excited</button>
+            <button class="etag" onclick="toggleEtag(this)">😓 Stressed</button>
+            <button class="etag" onclick="toggleEtag(this)">🥹 Grateful</button>
+            <button class="etag" onclick="toggleEtag(this)">😴 Tired</button>
+            <button class="etag" onclick="toggleEtag(this)">🤔 Confused</button>
+            <button class="etag" onclick="toggleEtag(this)">💪 Motivated</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>What's influencing your mood? <span class="hint">(optional)</span></label>
+          <textarea id="mood-note" rows="3" placeholder="Work, relationships, sleep, weather..."></textarea>
+        </div>
+        <button class="btn-primary" onclick="logMood()">Log Mood</button>
+        <p id="tracker-msg" class="tracker-msg"></p>
+      </div>
+
+      <div class="tracker-history card mt2">
+        <h3>Mood History</h3>
+        <canvas id="history-chart" height="140"></canvas>
+        <div id="mood-history-list" class="mood-history-list"></div>
+      </div>
+    </section>
+
+    <!-- JOURNAL -->
+    <section class="page" id="page-journal">
+      <div class="page-header">
+        <h2>Journal</h2>
+        <p class="page-sub">A private space to reflect</p>
+      </div>
+      <div class="journal-editor card">
+        <div class="journal-toolbar">
+          <input type="text" id="journal-title" placeholder="Entry title..." class="journal-title-input"/>
+          <span id="journal-date" class="journal-date"></span>
+        </div>
+        <div class="prompt-strip" id="journal-prompt">
+          <span>✍️ Prompt: </span><span id="prompt-text">What made you smile today?</span>
+          <button class="btn-ghost tiny" onclick="newPrompt()">New prompt</button>
+        </div>
+        <textarea id="journal-body" rows="10" placeholder="Write freely here... this is your safe space."></textarea>
+        <div class="journal-actions">
+          <select id="journal-mood-tag">
+            <option value="">Tag mood...</option>
+            <option>😌 Calm</option><option>😊 Happy</option><option>😢 Sad</option>
+            <option>😰 Anxious</option><option>💪 Motivated</option><option>😓 Stressed</option>
+          </select>
+          <button class="btn-primary" onclick="saveJournal()">Save Entry</button>
+          <button class="btn-ghost" onclick="clearJournal()">Clear</button>
+        </div>
+        <p id="journal-msg" class="tracker-msg"></p>
+      </div>
+      <div class="journal-entries card mt2">
+        <h3>Past Entries</h3>
+        <div id="journal-list" class="journal-list"></div>
+      </div>
+    </section>
+
+    <!-- AI CHAT -->
+    <section class="page" id="page-ai-chat">
+      <div class="page-header">
+        <h2>AI Support</h2>
+        <p class="page-sub">Talk to your compassionate AI companion — Sage</p>
+      </div>
+      <div class="chat-container card">
+        <div class="chat-header">
+          <div class="sage-avatar">🧘</div>
+          <div>
+            <strong>Sage</strong>
+            <span class="online-dot">● Online</span>
+          </div>
+          <button class="btn-ghost tiny" onclick="clearChat()">Clear chat</button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="msg ai">
+            <div class="msg-bubble">
+              Hi, I'm Sage 🌿 I'm here to listen without judgment. What's on your mind today?
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <textarea id="chat-input" rows="2" placeholder="Share what you're feeling..." onkeydown="chatKeydown(event)"></textarea>
+          <button class="send-btn" onclick="sendChat()">➤</button>
+        </div>
+        <p class="chat-disclaimer">⚠️ Sage is an AI and not a substitute for professional help. If in crisis, please call a helpline.</p>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section class="page" id="page-community">
+      <div class="page-header">
+        <h2>Community</h2>
+        <p class="page-sub">Share anonymously, support each other 💚</p>
+      </div>
+      <div class="community-post-form card">
+        <textarea id="post-text" rows="3" placeholder="Share a thought, feeling, or win... (posted anonymously)"></textarea>
+        <div class="post-actions">
+          <select id="post-tag">
+            <option value="general">💬 General</option>
+            <option value="anxiety">😰 Anxiety</option>
+            <option value="gratitude">🥹 Gratitude</option>
+            <option value="progress">💪 Progress</option>
+            <option value="vent">😤 Vent</option>
+            <option value="support">🤝 Need Support</option>
+          </select>
+          <button class="btn-primary" onclick="submitPost()">Post Anonymously</button>
+        </div>
+      </div>
+      <div id="community-feed" class="community-feed"></div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="page" id="page-resources">
+      <div class="page-header">
+        <h2>Learn & Grow</h2>
+        <p class="page-sub">Evidence-based resources for your well-being</p>
+      </div>
+      <div class="resource-search">
+        <input type="text" id="resource-search" placeholder="Search topics..." oninput="filterResources()"/>
+      </div>
+      <div class="resources-grid" id="resources-grid"></div>
+    </section>
+
+    <!-- BREATHE -->
+    <section class="page" id="page-breathe">
+      <div class="page-header">
+        <h2>Breathing Exercises</h2>
+        <p class="page-sub">Ground yourself with mindful breathing</p>
+      </div>
+      <div class="breathe-container">
+        <div class="technique-selector">
+          <button class="tech-btn active" data-tech="box" onclick="selectTech(this,'box')">Box Breathing</button>
+          <button class="tech-btn" data-tech="478" onclick="selectTech(this,'478')">4-7-8</button>
+          <button class="tech-btn" data-tech="calm" onclick="selectTech(this,'calm')">Calm Down</button>
+        </div>
+        <div class="breathe-card card">
+          <p id="breathe-desc" class="breathe-desc"></p>
+          <div class="breathe-visual">
+            <div class="breath-ring" id="breath-ring">
+              <div class="breath-inner">
+                <span id="breath-instruction">Press Start</span>
+                <span id="breath-count" class="breath-count"></span>
+              </div>
+            </div>
+          </div>
+          <div class="breathe-controls">
+            <button class="btn-primary" id="breathe-btn" onclick="toggleBreathe()">▶ Start</button>
+            <span id="breathe-cycle" class="cycle-count"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast"></div>
+
+<!-- Chart.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+</body>
+</html>
