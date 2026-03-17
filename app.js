@@ -1,10 +1,10 @@
-/* ===== MINDSPACE APP.JS ===== */
+ /* ===== MINDSPACE APP.JS ===== */
 
 // ---- CONFIG ----
 let CONFIG = {
   supabaseUrl: 'https://kzwiqemdqgfwmntiaiwc.supabase.co',
   supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6d2lxZW1kcWdmd21udGlhaXdjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2NDcwMzcsImV4cCI6MjA4OTIyMzAzN30.OgP_hmLPyReSbSmLgAcrVMmfgf5XYMmxJ1BswddtVLQ',
-  geminiKey: ''
+  geminiKey: 'add your api key'
 };
 
 let supabaseClient = null;
