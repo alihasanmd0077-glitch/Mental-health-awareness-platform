@@ -13,7 +13,7 @@ A full-stack mental health awareness and well-being platform. **Works fully in d
 | 🏡 **Dashboard** | Daily affirmations, mood quick-check, streak tracker, wellness tips |
 | 💚 **Mood Tracker** | 1-10 scale slider, emotion tags, mood history, weekly chart |
 | 📓 **Journal** | Guided prompts, rich text entries, mood tagging, browsable history |
-| 🤖 **AI Support (Sage)** | Compassionate AI powered by Gemini 1.5 Flash |
+| 🤖 **AI Support (Sage)** | Compassionate AI powered by Gemini 3 Flash |
 | 🌐 **Community** | Anonymous posts, reactions, tags (anxiety/gratitude/vent/etc.) |
 | 📚 **Learn** | 12 searchable evidence-based mental health resource cards |
 | 🌬️ **Breathe** | Box Breathing, 4-7-8, and Calm Down animated guides |
