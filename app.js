@@ -2,8 +2,8 @@
 
 // ---- CONFIG ----
 let CONFIG = {
-  supabaseUrl: 'https://nwsbrxacmpxqwzrptuvg.supabase.co',
-  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53c2JyeGFjbXB4cXd6cnB0dXZnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3NTA0MzYsImV4cCI6MjA4OTMyNjQzNn0.dxJRaor7NljpYPOhmNDn3yDlg-I-p-6UXe4ZNj0OCCM',
+  supabaseUrl: 'add your key',
+  supabaseKey: 'add your key',
   geminiKey: 'add your api key'
 };
 
